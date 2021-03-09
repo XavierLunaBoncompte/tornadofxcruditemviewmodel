@@ -33,10 +33,8 @@ class ClientController: Controller() {
         val client = Client(telefon, nom)
         val dao = ClientDAO()
         dao.addClient(client)
+        clients.add(client)
 
-        with(clients) {
-            add(client)
-        }
     }
 
     fun delete (client: Client?) {
@@ -47,9 +45,6 @@ class ClientController: Controller() {
         val dao = ClientDAO()
         dao.deleteClient(client.telefon)
         clients.remove(client)
-        with(clients) {
-            remove(client)
-        }
     }
 
     fun getAllClients(): ObservableList<Client> = ClientDAO().readClient().observable()

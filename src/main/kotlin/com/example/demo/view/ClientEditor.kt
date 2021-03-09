@@ -102,6 +102,11 @@ class ClientEditor : View("Client Editor") {
         val client = model.item
 
         clientController.deleteClients(client)
+
+        with(clients) {
+            remove(client)
+        }
+
         find<PopupDialog>(mapOf("message" to "Client eliminat")).openModal(stageStyle = StageStyle.UTILITY)
 
         // A real application would persist the person here
@@ -117,7 +122,13 @@ class ClientEditor : View("Client Editor") {
         val client = model.item
 
         clientController.postClient(model.telefon.value, model.nom.value)
+
+        with(clients) {
+            add(client)
+        }
+
         find<PopupDialog>(params = mapOf("message" to "New Client Added")).openModal(stageStyle = StageStyle.UTILITY)
+
 
         // A real application would persist the person here
         clientController.create(client)
