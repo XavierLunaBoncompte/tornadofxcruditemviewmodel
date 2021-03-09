@@ -1,7 +1,6 @@
 package com.example.demo.app
 
-import com.example.demo.view.MainView
-import com.example.demo.view.PersonEditor
+import com.example.demo.view.ClientEditor
 import tornadofx.App
 
-class MyApp: App(PersonEditor::class, Styles::class)
+class MyApp: App(ClientEditor::class, Styles::class)
